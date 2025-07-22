@@ -1,0 +1,17 @@
+body,
+html,
+.app-bg {
+  background: linear-gradient(to bottom right, #ff4e00, #f9d423);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+
+
+.table-header {
+  background-color: blue;
+  color: white;
+}
