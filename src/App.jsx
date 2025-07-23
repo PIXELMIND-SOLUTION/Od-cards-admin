@@ -16,6 +16,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Reviews from "./pages/Reviews/Reviews";
 import Faqs from "./pages/Faqs/Faq";
+import Scroller from "./pages/Scroller/Scroller";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -84,6 +85,7 @@ function App() {
             <Route path="contact-us" element={<ContactUs />} />
             <Route path="reviews" element={<Reviews />} />
             <Route path="faqs" element={<Faqs />} />
+            <Route path="scroller" element={<Scroller />} />
           </Route>
 
           <Route 

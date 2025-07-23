@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
-import Swal from 'sweetalert2';
 
 function Scroller() {
   const [marquees, setMarquees] = useState([]);
@@ -32,55 +31,15 @@ function Scroller() {
       setNewText('');
       setNewIcon('fa-envelope');
       setEditId(null);
-
-      Swal.fire({
-        icon: 'success',
-        title: editId ? 'Updated Successfully' : 'Added Successfully',
-        timer: 1500,
-        showConfirmButton: false,
-      });
-    }).catch(err => {
-      console.error(err);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'Something went wrong. Please try again.',
-      });
-    });
+    }).catch(err => console.error(err));
   };
 
   const handleDelete = (id) => {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#6c757d',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios.delete(`https://od-cards-backend-z494.onrender.com/api/marquees/delete/${id}`)
-          .then(() => {
-            fetchMarquees();
-            Swal.fire({
-              icon: 'success',
-              title: 'Deleted!',
-              text: 'The item has been deleted.',
-              timer: 1500,
-              showConfirmButton: false
-            });
-          })
-          .catch(err => {
-            console.error(err);
-            Swal.fire({
-              icon: 'error',
-              title: 'Failed to delete!',
-              text: 'An error occurred while deleting.',
-            });
-          });
-      }
-    });
+    if (window.confirm("Are you sure you want to delete this marquee item?")) {
+      axios.delete(`https://od-cards-backend-z494.onrender.com/api/marquees/delete/${id}`)
+        .then(() => fetchMarquees())
+        .catch(err => console.error(err));
+    }
   };
 
   const handleEdit = (item) => {
@@ -123,7 +82,7 @@ function Scroller() {
       <table className="table table-bordered table-hover">
         <thead className="table-light">
           <tr>
-            <th>SNO</th>
+            <th>#</th>
             <th>Text</th>
             <th>Icon</th>
             <th>Actions</th>

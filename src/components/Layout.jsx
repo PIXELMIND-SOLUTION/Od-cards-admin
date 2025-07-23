@@ -80,7 +80,9 @@ function Layout({ onLogout }) {
     { name: "about-us", label: "About Us", icon: FaInfoCircle, to: "/about-us" },
     { name: "contact-us", label: "Contact Us", icon: FaPhone, to: "/contact-us" },
     { name: "reviews", label: "Reviews", icon: FaStar, to: "/reviews" },
-    { name: "faqs", label: "FAQs", icon: FaQuestionCircle, to: "/faqs" }
+    { name: "faqs", label: "FAQs", icon: FaQuestionCircle, to: "/faqs" },
+    { name: "scroller", label: "Scroller", icon: FaChevronRight, to: "/scroller" }
+
   ];
 
   return (

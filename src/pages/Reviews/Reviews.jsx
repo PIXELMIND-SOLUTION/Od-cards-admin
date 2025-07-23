@@ -23,7 +23,7 @@ const Reviews = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/reviews/allreviews');
+      const response = await axios.get('https://od-cards-backend-z494.onrender.com/api/reviews/allreviews');
       setReviews(response.data);
       setLoading(false);
     } catch (error) {
@@ -59,12 +59,12 @@ const Reviews = () => {
 
     try {
       if (isEditing && currentReviewId) {
-        await axios.put(`http://localhost:5000/api/reviews/updatereview/${currentReviewId}`, data, {
+        await axios.put(`https://od-cards-backend-z494.onrender.com/api/reviews/updatereview/${currentReviewId}`, data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         Swal.fire('Success!', 'Review updated successfully.', 'success');
       } else {
-        await axios.post('http://localhost:5000/api/reviews/create-review', data, {
+        await axios.post('https://od-cards-backend-z494.onrender.com/api/reviews/create-review', data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         Swal.fire('Success!', 'Review created successfully.', 'success');
@@ -104,7 +104,7 @@ const Reviews = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/reviews/deletereview/${id}`);
+        await axios.delete(`https://od-cards-backend-z494.onrender.com/api/reviews/deletereview/${id}`);
         Swal.fire('Deleted!', 'Review has been deleted.', 'success');
         fetchReviews();
       } catch (error) {
@@ -260,7 +260,7 @@ const Reviews = () => {
                           <div className="d-flex align-items-center mb-3">
                             {review.image && (
                               <img 
-                                src={`http://localhost:5000${review.image}`} 
+                                src={`https://od-cards-backend-z494.onrender.com${review.image}`} 
                                 alt={review.name} 
                                 className="rounded-circle me-3"
                                 style={{ width: '50px', height: '50px', objectFit: 'cover' }}

@@ -27,7 +27,7 @@ const ContactUs = () => {
 
   const fetchContactData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/contactus/get');
+      const response = await axios.get('https://od-cards-backend-z494.onrender.com/api/contactus/get');
       if (response.data.data.length > 0) {
         const contact = response.data.data[0];
         setContactData({
@@ -46,7 +46,7 @@ const ContactUs = () => {
 
   const fetchSubmissions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/contactus/submissions');
+      const response = await axios.get('https://od-cards-backend-z494.onrender.com/api/contactus/submissions');
       setSubmissions(response.data.data);
       setLoadingSubmissions(false);
     } catch (error) {
@@ -64,10 +64,10 @@ const ContactUs = () => {
     e.preventDefault();
     try {
       if (currentContactId) {
-        await axios.put(`http://localhost:5000/api/contactus/update/${currentContactId}`, contactData);
+        await axios.put(`https://od-cards-backend-z494.onrender.com/api/contactus/update/${currentContactId}`, contactData);
         Swal.fire('Success!', 'Contact information updated successfully.', 'success');
       } else {
-        await axios.post('http://localhost:5000/api/contactus/create', contactData);
+        await axios.post('https://od-cards-backend-z494.onrender.com/api/contactus/create', contactData);
         Swal.fire('Success!', 'Contact information created successfully.', 'success');
       }
       fetchContactData();
@@ -90,7 +90,7 @@ const ContactUs = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/contactus/submissions/${id}`);
+        await axios.delete(`https://od-cards-backend-z494.onrender.com/api/contactus/submissions/${id}`);
         Swal.fire('Deleted!', 'Submission has been deleted.', 'success');
         fetchSubmissions();
       } catch (error) {

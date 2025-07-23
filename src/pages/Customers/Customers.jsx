@@ -16,7 +16,7 @@ const Customers = () => {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/users/getallusers");
+      const res = await axios.get("https://od-cards-backend-z494.onrender.com/api/users/getallusers");
       const users = res.data.users || [];
       setCustomers(users);
       setFilteredCustomers(users);
@@ -42,7 +42,7 @@ const Customers = () => {
 
     if (confirm.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/users/deleteuser/${id}`);
+        await axios.delete(`https://od-cards-backend-z494.onrender.com/api/users/deleteuser/${id}`);
         Swal.fire("Deleted!", "User has been deleted.", "success");
         fetchCustomers();
       } catch (error) {
@@ -54,7 +54,7 @@ const Customers = () => {
 
   const handleViewUser = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/users/user/${id}`);
+      const res = await axios.get(`https://od-cards-backend-z494.onrender.com/api/users/user/${id}`);
       setSelectedUser(res.data.user);
     } catch (error) {
       console.error("View user error:", error);

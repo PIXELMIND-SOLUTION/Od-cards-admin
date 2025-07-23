@@ -44,7 +44,7 @@ const AboutUs = () => {
   // Fetch About Us data
   const fetchAboutData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/aboutus/about');
+      const response = await axios.get('https://od-cards-backend-z494.onrender.com/api/aboutus/about');
       if (response.data.length > 0) {
         const aboutItem = response.data[0];
         setAboutData({
@@ -65,7 +65,7 @@ const AboutUs = () => {
   // Fetch Card Categories data
   const fetchCardData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/aboutcard/getallcards');
+      const response = await axios.get('https://od-cards-backend-z494.onrender.com/api/aboutcard/getallcards');
       setCards(response.data);
       setLoadingCards(false);
     } catch (error) {
@@ -117,13 +117,13 @@ const AboutUs = () => {
     try {
       if (isEditingAbout && currentAboutId) {
         // Update existing - Fixed the endpoint to include the ID parameter
-        await axios.put(`http://localhost:5000/api/aboutus/updateabout/${currentAboutId}`, data, {
+        await axios.put(`https://od-cards-backend-z494.onrender.com/api/aboutus/updateabout/${currentAboutId}`, data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         Swal.fire('Success!', 'About Us updated successfully.', 'success');
       } else {
         // Create new
-        await axios.post('http://localhost:5000/api/aboutus/create-about', data, {
+        await axios.post('https://od-cards-backend-z494.onrender.com/api/aboutus/create-about', data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         Swal.fire('Success!', 'About Us created successfully.', 'success');
@@ -153,13 +153,13 @@ const AboutUs = () => {
     try {
       if (isEditingCard && currentCardId) {
         // Update existing
-        await axios.put(`http://localhost:5000/api/aboutcard/updatecard/${currentCardId}`, data, {
+        await axios.put(`https://od-cards-backend-z494.onrender.com/api/aboutcard/updatecard/${currentCardId}`, data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         Swal.fire('Success!', 'Card Category updated successfully.', 'success');
       } else {
         // Create new
-        await axios.post('http://localhost:5000/api/aboutcard/create-card', data, {
+        await axios.post('https://od-cards-backend-z494.onrender.com/api/aboutcard/create-card', data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         Swal.fire('Success!', 'Card Category created successfully.', 'success');
@@ -201,7 +201,7 @@ const AboutUs = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/aboutcard/deletecard/${id}`);
+        await axios.delete(`https://od-cards-backend-z494.onrender.com/api/aboutcard/deletecard/${id}`);
         Swal.fire('Deleted!', 'Card Category has been deleted.', 'success');
         fetchCardData();
       } catch (error) {
@@ -283,7 +283,7 @@ const AboutUs = () => {
                             <div className="mt-2">
                               <p className="text-muted mb-1">Current Image:</p>
                               <img 
-                                src={`http://localhost:5000${existingAboutImage}`} 
+                                src={`https://od-cards-backend-z494.onrender.com${existingAboutImage}`} 
                                 alt="Current" 
                                 style={{ maxWidth: '200px', maxHeight: '200px' }}
                                 className="img-thumbnail"
@@ -442,7 +442,7 @@ const AboutUs = () => {
                                 <td>
                                   {card.image && (
                                     <img 
-                                      src={`http://localhost:5000${card.image}`} 
+                                      src={`https://od-cards-backend-z494.onrender.com${card.image}`} 
                                       alt={card.title} 
                                       style={{ width: '60px', height: 'auto' }}
                                       className="img-thumbnail"

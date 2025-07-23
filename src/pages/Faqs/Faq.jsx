@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { FaEdit, FaTrash, FaPlus, FaSave, FaTimes } from "react-icons/fa";
 
-const API_URL = "http://localhost:5000/api/admin";
+const API_URL = "https://od-cards-backend-z494.onrender.com/api/admin";
 
 const Faqs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -121,7 +121,7 @@ const Faqs = () => {
       {/* Display Image */}
       {faqImage && (
         <div className="mb-3">
-          <img src={`http://localhost:5000${faqImage}`} alt="FAQ Visual" style={{ maxWidth: "200px" }} />
+          <img src={`https://od-cards-backend-z494.onrender.com${faqImage}`} alt="FAQ Visual" style={{ maxWidth: "200px" }} />
           <button className="btn btn-sm btn-danger ms-3" onClick={handleDeleteImage}>
             Delete Image
           </button>
